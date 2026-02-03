@@ -4,7 +4,9 @@ import com.example.hogwarts.dto.CasaDTO;
 import com.example.hogwarts.model.Casa;
 
 public class CasaMapper {
-    public CasaDTO toDTO(Casa casa) {
+    private ProfesorMapper profesorMapper;
+
+    public CasaDTO toDto(Casa casa) {
         if (casa == null) return null;
 
         CasaDTO dto = new CasaDTO();
@@ -13,7 +15,7 @@ public class CasaMapper {
         dto.setFundador(casa.getFundadorCasa());
 
         if (casa.getProfesor() != null) {
-            dto.setJefe(ProfesorMapper.toDTO(casa.getProfesor()));
+            dto.setJefe(profesorMapper.toDto(casa.getProfesor()));
         } else {
             dto.setJefe(null);
         }

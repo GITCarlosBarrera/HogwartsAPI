@@ -4,7 +4,7 @@ import com.example.hogwarts.dto.AsignaturaCalificacionDTO;
 import com.example.hogwarts.model.EstudianteAsignatura;
 
 public class AsignaturaCalificacionMapper {
-    public AsignaturaCalificacionDTO toDTO(EstudianteAsignatura asignaturaCalificacion) {
+    public AsignaturaCalificacionDTO toDto(EstudianteAsignatura asignaturaCalificacion) {
         if (asignaturaCalificacion == null) return null;
 
         AsignaturaCalificacionDTO dto = new AsignaturaCalificacionDTO();

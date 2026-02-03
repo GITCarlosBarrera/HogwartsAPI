@@ -21,13 +21,13 @@ public class EstudianteCreateDTO {
     private String apellido;
 
     @NotNull(message = "El año del curso no puede estar vacío")
-    private int anyoCurso;
+    private Integer anyoCurso;
 
     @NotNull(message = "La fecha de nacimiento no puede estar vacía")
     @Past(message = "La fecha de nacimiento debe ser anterior a la fecha actual")
     private LocalDate fechaNacimiento;
 
-    private int idCasa;
+    private Integer idCasa;
 
     @Valid
     @NotNull(message = "La mascota es obligatoria.")

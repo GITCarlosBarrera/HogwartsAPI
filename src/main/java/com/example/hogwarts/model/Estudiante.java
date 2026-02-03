@@ -15,7 +15,7 @@ public class Estudiante {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id_estudiante")
-    private int idEstudiante;
+    private Integer idEstudiante;
 
     @Column(name = "nombre")
     private String nombreEstudiante;
@@ -28,7 +28,7 @@ public class Estudiante {
     private Casa casa;
 
     @Column(name = "anyo_curso")
-    private int anyoCursoEstudiante;
+    private Integer anyoCursoEstudiante;
 
     @Column(name = "fecha_nacimiento")
     private LocalDate fechaNacimientoEstudiante;

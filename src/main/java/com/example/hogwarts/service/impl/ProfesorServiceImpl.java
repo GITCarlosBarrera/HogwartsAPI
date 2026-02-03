@@ -21,7 +21,7 @@ public class ProfesorServiceImpl implements ProfesorService {
         List<Profesor> lista = profesorRepository.findAll();
 
         return lista.stream()
-                .map(profesorMapper::toDTO)
+                .map(profesorMapper::toDto)
                 .toList();
     }
 }

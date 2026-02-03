@@ -14,7 +14,7 @@ public class Casa {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id_casa")
-    private int idCasa;
+    private Integer idCasa;
 
     @Column(name = "nombre")
     private String nombreCasa;

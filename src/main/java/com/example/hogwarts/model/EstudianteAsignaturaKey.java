@@ -8,8 +8,8 @@ import java.io.Serializable;
 @Embeddable
 public class EstudianteAsignaturaKey implements Serializable {
     @Column(name = "id_estudiante")
-    private int idEstudiante;
+    private Integer idEstudiante;
 
     @Column(name = "id_asignatura")
-    private int idAsignatura;
+    private Integer idAsignatura;
 }

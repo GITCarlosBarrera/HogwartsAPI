@@ -21,7 +21,7 @@ public class CasaServiceImpl implements CasaService {
         List<Casa> lista = casaRepository.findAll();
 
         return lista.stream()
-                .map(casaMapper::toDTO)
+                .map(casaMapper::toDto)
                 .toList();
     }
 }

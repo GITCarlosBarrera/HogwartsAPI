@@ -12,7 +12,7 @@ public class Mascota {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id_mascota")
-    private int idMascota;
+    private Integer idMascota;
 
     @Column(name = "nombre")
     private String nombreMascota;

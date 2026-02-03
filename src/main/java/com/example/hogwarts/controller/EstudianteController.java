@@ -2,6 +2,7 @@ package com.example.hogwarts.controller;
 
 import com.example.hogwarts.dto.EstudianteDTO;
 import com.example.hogwarts.dto.create.EstudianteCreateDTO;
+import com.example.hogwarts.dto.update.EstudianteUpdateDTO;
 import com.example.hogwarts.service.impl.EstudianteServiceImpl;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -25,6 +26,12 @@ public class EstudianteController {
     @PostMapping
     public ResponseEntity<EstudianteDTO> crearEstudiante(@Valid @RequestBody EstudianteCreateDTO dto) {
         EstudianteDTO estudianteCreado = estudianteService.crearEstudiante(dto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(estudianteCreado); // 201 OK
+        return ResponseEntity.status(HttpStatus.CREATED).body(estudianteCreado); // 201 Created
+    }
+
+    @PutMapping("/id")
+    public ResponseEntity<EstudianteDTO> actualizarEstudiante(@PathVariable Integer id, @Valid @RequestBody EstudianteUpdateDTO dto) {
+        EstudianteDTO estudianteActualizado = estudianteService.actualizarEstudiante(id, dto);
+        return ResponseEntity.ok(estudianteActualizado); // 200 OK
     }
 }

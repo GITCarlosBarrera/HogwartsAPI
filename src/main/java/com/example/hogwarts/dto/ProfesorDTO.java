@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProfesorDTO {
-    private int idProfesor;
+    private Integer idProfesor;
     private String nombreProfesor;
     private String nombreAsignatura;
     private LocalDate fechaInicio;

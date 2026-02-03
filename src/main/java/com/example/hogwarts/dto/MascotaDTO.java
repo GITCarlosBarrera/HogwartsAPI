@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MascotaDTO {
-    private int id;
+    private Integer id;
     private String nombre;
     private String especie;
     private String estudiante;

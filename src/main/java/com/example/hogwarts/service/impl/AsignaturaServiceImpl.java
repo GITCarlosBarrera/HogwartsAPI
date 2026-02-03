@@ -22,7 +22,7 @@ public class AsignaturaServiceImpl implements AsignaturaService {
         List<Asignatura> lista = asignaturaRepository.findAll();
 
         return lista.stream()
-                .map(asignaturaMapper::toDTO)
+                .map(asignaturaMapper::toDto)
                 .collect(Collectors.toList());
     }
 }

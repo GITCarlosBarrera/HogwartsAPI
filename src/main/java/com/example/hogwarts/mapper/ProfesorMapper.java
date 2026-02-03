@@ -4,7 +4,7 @@ import com.example.hogwarts.dto.ProfesorDTO;
 import com.example.hogwarts.model.Profesor;
 
 public class ProfesorMapper {
-    public ProfesorDTO toDTO(Profesor profesor) {
+    public ProfesorDTO toDto(Profesor profesor) {
         if (profesor == null) return null;
 
         ProfesorDTO dto = new ProfesorDTO();
@@ -18,5 +18,7 @@ public class ProfesorMapper {
         }
 
         dto.setFechaInicio(profesor.getFechaInicioProfesor());
+
+        return dto;
     }
 }
