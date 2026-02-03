@@ -14,13 +14,14 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MascotaServiceImpl implements MascotaService {
     private MascotaRepository mascotaRepository;
+    private MascotaMapper mascotaMapper;
 
     @Override
     public List<MascotaDTO> obtenerTodasLasMascotas() {
         List<Mascota> lista = mascotaRepository.findAll();
 
         return lista.stream()
-                .map(MascotaMapper::toDTO)
+                .map(mascotaMapper::toDTO)
                 .toList();
     }
 }

@@ -1,11 +1,13 @@
 package com.example.hogwarts.controller;
 
 import com.example.hogwarts.dto.EstudianteDTO;
+import com.example.hogwarts.dto.create.EstudianteCreateDTO;
 import com.example.hogwarts.service.impl.EstudianteServiceImpl;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,5 +20,11 @@ public class EstudianteController {
     @GetMapping
     public List<EstudianteDTO> obtenerEstudiantes() {
         return estudianteService.obtenerTodosLosEstudiantes();
+    }
+
+    @PostMapping
+    public ResponseEntity<EstudianteDTO> crearEstudiante(@Valid @RequestBody EstudianteCreateDTO dto) {
+        EstudianteDTO estudianteCreado = estudianteService.crearEstudiante(dto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(estudianteCreado); // 201 OK
     }
 }

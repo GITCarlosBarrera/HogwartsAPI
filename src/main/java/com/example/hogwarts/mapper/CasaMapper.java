@@ -4,7 +4,7 @@ import com.example.hogwarts.dto.CasaDTO;
 import com.example.hogwarts.model.Casa;
 
 public class CasaMapper {
-    public static CasaDTO toDTO(Casa casa) {
+    public CasaDTO toDTO(Casa casa) {
         if (casa == null) return null;
 
         CasaDTO dto = new CasaDTO();

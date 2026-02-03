@@ -4,7 +4,7 @@ import com.example.hogwarts.dto.ProfesorDTO;
 import com.example.hogwarts.model.Profesor;
 
 public class ProfesorMapper {
-    public static ProfesorDTO toDTO(Profesor profesor) {
+    public ProfesorDTO toDTO(Profesor profesor) {
         if (profesor == null) return null;
 
         ProfesorDTO dto = new ProfesorDTO();

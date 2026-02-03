@@ -5,7 +5,7 @@ import com.example.hogwarts.model.Asignatura;
 
 public class AsignaturaMapper {
 
-    public static AsignaturaDTO toDTO(Asignatura asignatura) {
+    public AsignaturaDTO toDTO(Asignatura asignatura) {
         if (asignatura == null) {
             return null;
         }

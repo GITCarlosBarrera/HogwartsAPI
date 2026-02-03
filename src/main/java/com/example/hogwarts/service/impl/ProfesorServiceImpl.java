@@ -14,13 +14,14 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProfesorServiceImpl implements ProfesorService {
     private ProfesorRepository profesorRepository;
+    private ProfesorMapper profesorMapper;
 
     @Override
     public List<ProfesorDTO> obtenerTodosLosProfesores() {
         List<Profesor> lista = profesorRepository.findAll();
 
         return lista.stream()
-                .map(ProfesorMapper::toDTO)
+                .map(profesorMapper::toDTO)
                 .toList();
     }
 }

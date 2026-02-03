@@ -14,13 +14,14 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CasaServiceImpl implements CasaService {
     private CasaRepository casaRepository;
+    private CasaMapper casaMapper;
 
     @Override
     public List<CasaDTO> obtenerTodasLasCasas() {
         List<Casa> lista = casaRepository.findAll();
 
         return lista.stream()
-                .map(CasaMapper::toDTO)
+                .map(casaMapper::toDTO)
                 .toList();
     }
 }

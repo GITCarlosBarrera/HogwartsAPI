@@ -15,13 +15,14 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class AsignaturaServiceImpl implements AsignaturaService {
     private AsignaturaRepository asignaturaRepository;
+    private AsignaturaMapper asignaturaMapper;
 
     @Override
     public List<AsignaturaDTO> obtenerTodasLasAsignaturas() {
         List<Asignatura> lista = asignaturaRepository.findAll();
 
         return lista.stream()
-                .map(AsignaturaMapper::toDTO)
+                .map(asignaturaMapper::toDTO)
                 .collect(Collectors.toList());
     }
 }

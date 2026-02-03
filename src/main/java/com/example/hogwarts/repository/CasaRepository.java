@@ -4,4 +4,5 @@ import com.example.hogwarts.model.Casa;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CasaRepository extends JpaRepository<Casa, Integer> {
+    Casa getCasaByNombreCasa(String nombreCasa);
 }
