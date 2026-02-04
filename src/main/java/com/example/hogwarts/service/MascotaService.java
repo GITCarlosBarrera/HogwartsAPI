@@ -8,6 +8,6 @@ import com.example.hogwarts.dto.create.MascotaCreateDTO;
 import java.util.List;
 
 public interface MascotaService {
-    public List<MascotaDTO> obtenerTodasLasMascotas();
-    public MascotaDTO crearMascota(MascotaCreateDTO dto);
+    List<MascotaDTO> obtenerTodasLasMascotas();
+    MascotaDTO crearMascota(MascotaCreateDTO dto);
 }

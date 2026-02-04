@@ -1,6 +1,7 @@
 package com.example.hogwarts.controller;
 
 import com.example.hogwarts.dto.CasaDTO;
+import com.example.hogwarts.service.CasaService;
 import com.example.hogwarts.service.impl.CasaServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +14,7 @@ import java.util.List;
 @RequestMapping("/api/casa")
 @RequiredArgsConstructor
 public class CasaController {
-    private CasaServiceImpl casaService;
+    private CasaService casaService;
 
     @GetMapping
     public List<CasaDTO> obtenerCasas() {

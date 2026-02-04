@@ -7,7 +7,8 @@ import com.example.hogwarts.dto.update.EstudianteUpdateDTO;
 import java.util.List;
 
 public interface EstudianteService {
-    public List<EstudianteDTO> obtenerTodosLosEstudiantes();
-    public EstudianteDTO crearEstudiante(EstudianteCreateDTO dto);
-    public EstudianteDTO actualizarEstudiante(Integer id, EstudianteUpdateDTO dto);
+    List<EstudianteDTO> obtenerTodosLosEstudiantes();
+    EstudianteDTO crearEstudiante(EstudianteCreateDTO dto);
+    EstudianteDTO actualizarEstudiante(Integer id, EstudianteUpdateDTO dto);
+    void eliminarEstudiante(Integer id);
 }

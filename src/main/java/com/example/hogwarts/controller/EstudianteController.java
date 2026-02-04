@@ -3,7 +3,7 @@ package com.example.hogwarts.controller;
 import com.example.hogwarts.dto.EstudianteDTO;
 import com.example.hogwarts.dto.create.EstudianteCreateDTO;
 import com.example.hogwarts.dto.update.EstudianteUpdateDTO;
-import com.example.hogwarts.service.impl.EstudianteServiceImpl;
+import com.example.hogwarts.service.EstudianteService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,7 +16,7 @@ import java.util.List;
 @RequestMapping("/api/estudiante")
 @RequiredArgsConstructor
 public class EstudianteController {
-    private EstudianteServiceImpl estudianteService;
+    private EstudianteService estudianteService;
 
     @GetMapping
     public List<EstudianteDTO> obtenerEstudiantes() {
@@ -29,9 +29,15 @@ public class EstudianteController {
         return ResponseEntity.status(HttpStatus.CREATED).body(estudianteCreado); // 201 Created
     }
 
-    @PutMapping("/id")
+    @PutMapping("/{id}")
     public ResponseEntity<EstudianteDTO> actualizarEstudiante(@PathVariable Integer id, @Valid @RequestBody EstudianteUpdateDTO dto) {
         EstudianteDTO estudianteActualizado = estudianteService.actualizarEstudiante(id, dto);
         return ResponseEntity.ok(estudianteActualizado); // 200 OK
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminarEstudiante(@PathVariable Integer id) {
+        estudianteService.eliminarEstudiante(id);
+        return ResponseEntity.noContent().build(); // 204 No Content
     }
 }

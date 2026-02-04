@@ -5,5 +5,5 @@ import com.example.hogwarts.dto.CasaDTO;
 import java.util.List;
 
 public interface CasaService {
-    public List<CasaDTO> obtenerTodasLasCasas();
+    List<CasaDTO> obtenerTodasLasCasas();
 }

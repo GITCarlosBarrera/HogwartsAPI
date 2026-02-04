@@ -1,6 +1,5 @@
 package com.example.hogwarts.dto.create;
 
-import com.example.hogwarts.dto.MascotaDTO;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

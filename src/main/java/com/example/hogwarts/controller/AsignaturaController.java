@@ -1,6 +1,7 @@
 package com.example.hogwarts.controller;
 
 import com.example.hogwarts.dto.AsignaturaDTO;
+import com.example.hogwarts.service.AsignaturaService;
 import com.example.hogwarts.service.impl.AsignaturaServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +14,7 @@ import java.util.List;
 @RequestMapping("/api/asignatura")
 @RequiredArgsConstructor
 public class AsignaturaController {
-    private AsignaturaServiceImpl asignaturaService;
+    private AsignaturaService asignaturaService;
 
     @GetMapping
     public List<AsignaturaDTO> obtenerAsignaturas() {
