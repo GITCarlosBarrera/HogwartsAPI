@@ -11,7 +11,6 @@ import com.example.hogwarts.repository.MascotaRepository;
 import com.example.hogwarts.service.EstudianteService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.type.descriptor.jdbc.XmlAsStringArrayJdbcTypeConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,10 +19,10 @@ import java.util.NoSuchElementException;
 @Service
 @RequiredArgsConstructor
 public class EstudianteServiceImpl implements EstudianteService {
-    private CasaRepository casaRepository;
-    private EstudianteRepository estudianteRepository;
-    private MascotaRepository mascotaRepository;
-    private EstudianteMapper estudianteMapper;
+    private final CasaRepository casaRepository;
+    private final EstudianteRepository estudianteRepository;
+    private final MascotaRepository mascotaRepository;
+    private final EstudianteMapper estudianteMapper;
 
     @Override
     public List<EstudianteDTO> obtenerTodosLosEstudiantes() {
@@ -50,7 +49,7 @@ public class EstudianteServiceImpl implements EstudianteService {
 
     @Override
     @Transactional
-    public EstudianteDTO actualizarEstudiante(Integer id, EstudianteUpdateDTO dto) {
+    public EstudianteDTO actualizarEstudiante(Long id, EstudianteUpdateDTO dto) {
         Estudiante estudianteExistente = estudianteRepository.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("Estudiante no encontrado con id:" + id));
 
@@ -62,7 +61,7 @@ public class EstudianteServiceImpl implements EstudianteService {
 
     @Override
     @Transactional
-    public void eliminarEstudiante(Integer id) {
+    public void eliminarEstudiante(Long id) {
         Estudiante estudiante = estudianteRepository.findById(id)
                 .orElseThrow(() -> new IllegalStateException("El estudiante con ID " + id + " no existe"));
 

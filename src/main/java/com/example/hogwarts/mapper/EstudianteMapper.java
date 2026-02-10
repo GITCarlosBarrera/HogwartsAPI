@@ -7,15 +7,20 @@ import com.example.hogwarts.model.Casa;
 import com.example.hogwarts.model.Estudiante;
 import com.example.hogwarts.model.Mascota;
 import com.example.hogwarts.repository.CasaRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
+@Component
+@RequiredArgsConstructor
 public class EstudianteMapper {
-    private MascotaMapper mascotaMapper;
-    private AsignaturaCalificacionMapper asignaturaCalificacionMapper;
+    private final MascotaMapper mascotaMapper;
+    private final AsignaturaCalificacionMapper asignaturaCalificacionMapper;
 
     public EstudianteDTO toDto(Estudiante estudiante) {
         if (estudiante == null) return null;
 
         EstudianteDTO dto = new EstudianteDTO();
+        dto.setId(estudiante.getIdEstudiante());
         dto.setNombre(estudiante.getNombreEstudiante() + " " + estudiante.getApellidoEstudiante());
         dto.setAnyoCurso(estudiante.getAnyoCursoEstudiante());
         dto.setFechaNacimiento(estudiante.getFechaNacimientoEstudiante());
@@ -43,10 +48,8 @@ public class EstudianteMapper {
         if (dto == null) return null;
 
         Estudiante estudiante = new Estudiante();
-        estudiante.setNombreEstudiante(dto.getNombre().split(" ")[0]);
-        if (dto.getNombre().split(" ", 2).length > 1) {
-            estudiante.setApellidoEstudiante(dto.getNombre().split(" ", 2)[0]);
-        }
+        estudiante.setNombreEstudiante(dto.getNombre());
+        estudiante.setApellidoEstudiante(dto.getApellido());
         estudiante.setAnyoCursoEstudiante(dto.getAnyoCurso());
         estudiante.setFechaNacimientoEstudiante(dto.getFechaNacimiento());
 

@@ -11,9 +11,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EstudianteDTO {
-    private Integer id;
+    private Long id;
     private String nombre;
-    private Integer anyoCurso;
+    private Long anyoCurso;
     private LocalDate fechaNacimiento;
     private String casa;
     private MascotaDTO mascota;

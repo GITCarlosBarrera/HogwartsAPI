@@ -10,9 +10,9 @@ import lombok.NoArgsConstructor;
 @Table(name = "mascota")
 public class Mascota {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_mascota")
-    private Integer idMascota;
+    private Long idMascota;
 
     @Column(name = "nombre")
     private String nombreMascota;

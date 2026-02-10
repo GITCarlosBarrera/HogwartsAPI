@@ -4,12 +4,17 @@ import com.example.hogwarts.dto.MascotaDTO;
 import com.example.hogwarts.dto.create.MascotaCreateDTO;
 import com.example.hogwarts.dto.update.MascotaUpdateDTO;
 import com.example.hogwarts.model.Mascota;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
+@Component
+@RequiredArgsConstructor
 public class MascotaMapper {
     public MascotaDTO toDto(Mascota mascota) {
         if (mascota == null) return null;
 
         MascotaDTO dto = new MascotaDTO();
+        dto.setId(mascota.getIdMascota());
         dto.setNombre(mascota.getNombreMascota());
         dto.setEspecie(mascota.getEspecieMascota());
         dto.setEstudiante(mascota.getEstudiante().getNombreEstudiante() + " " + mascota.getEstudiante().getApellidoEstudiante());

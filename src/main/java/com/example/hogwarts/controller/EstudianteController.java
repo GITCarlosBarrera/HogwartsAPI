@@ -16,7 +16,7 @@ import java.util.List;
 @RequestMapping("/api/estudiante")
 @RequiredArgsConstructor
 public class EstudianteController {
-    private EstudianteService estudianteService;
+    private final EstudianteService estudianteService;
 
     @GetMapping
     public List<EstudianteDTO> obtenerEstudiantes() {
@@ -30,13 +30,13 @@ public class EstudianteController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<EstudianteDTO> actualizarEstudiante(@PathVariable Integer id, @Valid @RequestBody EstudianteUpdateDTO dto) {
+    public ResponseEntity<EstudianteDTO> actualizarEstudiante(@PathVariable Long id, @Valid @RequestBody EstudianteUpdateDTO dto) {
         EstudianteDTO estudianteActualizado = estudianteService.actualizarEstudiante(id, dto);
         return ResponseEntity.ok(estudianteActualizado); // 200 OK
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarEstudiante(@PathVariable Integer id) {
+    public ResponseEntity<Void> eliminarEstudiante(@PathVariable Long id) {
         estudianteService.eliminarEstudiante(id);
         return ResponseEntity.noContent().build(); // 204 No Content
     }

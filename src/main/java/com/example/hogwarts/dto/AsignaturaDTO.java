@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AsignaturaDTO {
-    private Integer idAsignatura;
+    private Long idAsignatura;
     private String nombreAsignatura;
     private String aula;
     private Boolean asignaturaObligatoria;

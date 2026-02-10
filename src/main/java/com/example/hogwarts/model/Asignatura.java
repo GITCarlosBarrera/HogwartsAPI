@@ -14,7 +14,7 @@ public class Asignatura {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id_asignatura")
-    private Integer idAsignatura;
+    private Long idAsignatura;
 
     @Column(name = "nombre")
     private String nombreAsignatura;

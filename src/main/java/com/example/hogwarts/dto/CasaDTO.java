@@ -10,7 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CasaDTO {
-    private Integer idCasa;
+    private Long idCasa;
     private String nombreCasa;
     private String fundador;
     private String fantasma;

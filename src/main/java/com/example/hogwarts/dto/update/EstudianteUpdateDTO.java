@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Data
 public class EstudianteUpdateDTO {
     @NotNull(message = "El año del curso no puede estar vacío")
-    private Integer anyoCurso;
+    private Long anyoCurso;
 
     @NotNull(message = "La fecha de nacimiento no puede estar vacía")
     @Past(message = "La fecha de nacimiento debe ser anterior a la fecha actual")

@@ -9,6 +9,6 @@ import java.util.List;
 public interface EstudianteService {
     List<EstudianteDTO> obtenerTodosLosEstudiantes();
     EstudianteDTO crearEstudiante(EstudianteCreateDTO dto);
-    EstudianteDTO actualizarEstudiante(Integer id, EstudianteUpdateDTO dto);
-    void eliminarEstudiante(Integer id);
+    EstudianteDTO actualizarEstudiante(Long id, EstudianteUpdateDTO dto);
+    void eliminarEstudiante(Long id);
 }

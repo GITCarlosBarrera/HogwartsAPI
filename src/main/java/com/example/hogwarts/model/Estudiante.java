@@ -13,9 +13,9 @@ import java.util.List;
 @Table(name = "estudiante")
 public class Estudiante {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_estudiante")
-    private Integer idEstudiante;
+    private Long idEstudiante;
 
     @Column(name = "nombre")
     private String nombreEstudiante;
@@ -28,7 +28,7 @@ public class Estudiante {
     private Casa casa;
 
     @Column(name = "anyo_curso")
-    private Integer anyoCursoEstudiante;
+    private Long anyoCursoEstudiante;
 
     @Column(name = "fecha_nacimiento")
     private LocalDate fechaNacimientoEstudiante;
@@ -36,6 +36,6 @@ public class Estudiante {
     @OneToMany(mappedBy = "estudiante")
     private List<EstudianteAsignatura> calificaciones;
 
-    @OneToOne(mappedBy = "estudiante")
+    @OneToOne(mappedBy = "estudiante", cascade = CascadeType.ALL, orphanRemoval = true)
     private Mascota mascota;
 }
