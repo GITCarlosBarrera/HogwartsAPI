@@ -19,24 +19,16 @@ repositories {
 }
 
 dependencies {
-    // El motor web (Esto arregla @RestController, @GetMapping, etc.)
     implementation 'org.springframework.boot:spring-boot-starter-web'
-
-    // Validaciones de Jakarta
     implementation 'org.springframework.boot:spring-boot-starter-validation'
-
-    // Persistencia
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     runtimeOnly 'org.postgresql:postgresql'
-
-    // Herramientas de desarrollo
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
-
-    // Testing (Simplificado)
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'com.h2database:h2'
 }
 
 tasks.named('test') {
