@@ -5,6 +5,8 @@ import com.example.hogwarts.dto.create.EstudianteCreateDTO;
 import com.example.hogwarts.dto.update.EstudianteUpdateDTO;
 import com.example.hogwarts.service.EstudianteService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -25,20 +27,30 @@ public class EstudianteController {
         return estudianteService.obtenerTodosLosEstudiantes();
     }
 
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Estudiante creado correctamente"),
+            @ApiResponse(responseCode = "400", description = "Error al crear el estudiante")
+    })
     @PostMapping
     @Operation(summary = "Crea un nuevo estudiante")
     public ResponseEntity<EstudianteDTO> crearEstudiante(@Valid @RequestBody EstudianteCreateDTO dto) {
         EstudianteDTO estudianteCreado = estudianteService.crearEstudiante(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(estudianteCreado); // 201 Created
     }
-
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Estudiante modificado correctamente"),
+            @ApiResponse(responseCode = "404", description = "Error, no se encontro el estudiante")
+    })
     @PutMapping("/{id}")
     @Operation(summary = "Modifica los datos de un estudiante")
     public ResponseEntity<EstudianteDTO> actualizarEstudiante(@PathVariable Long id, @Valid @RequestBody EstudianteUpdateDTO dto) {
         EstudianteDTO estudianteActualizado = estudianteService.actualizarEstudiante(id, dto);
         return ResponseEntity.ok(estudianteActualizado); // 200 OK
     }
-
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "204", description = "Estudiante eliminado correctamente"),
+            @ApiResponse(responseCode = "404", description = "Error, no se encontro el estudiante")
+    })
     @DeleteMapping("/{id}")
     @Operation(summary = "Elimina un estudiante por su ID")
     public ResponseEntity<Void> eliminarEstudiante(@PathVariable Long id) {

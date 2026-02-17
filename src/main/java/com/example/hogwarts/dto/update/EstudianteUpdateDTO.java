@@ -17,5 +17,5 @@ public class EstudianteUpdateDTO {
     private LocalDate fechaNacimiento;
 
     @Valid
-    private MascotaUpdateDTO mascotaUpdateDTO;
+    private MascotaUpdateDTO mascota;
 }

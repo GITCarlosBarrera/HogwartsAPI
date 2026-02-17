@@ -38,4 +38,13 @@ public class Estudiante {
 
     @OneToOne(mappedBy = "estudiante", cascade = CascadeType.ALL, orphanRemoval = true)
     private Mascota mascota;
+
+    // Se modifica el setter de mascota para arreglar
+    // la bidireccionalidad entre estudiante y mascota
+    public void setMascota(Mascota mascota) {
+        this.mascota = mascota;
+        if (this.mascota != null) {
+            this.mascota.setEstudiante(this);
+        }
+    }
 }

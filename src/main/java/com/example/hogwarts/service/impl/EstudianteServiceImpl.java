@@ -58,8 +58,8 @@ public class EstudianteServiceImpl implements EstudianteService {
 
         estudianteMapper.updateEntityFromDto(dto, estudianteExistente);
 
-        if (dto.getMascotaUpdateDTO() != null) {
-            Mascota nueva = mascotaMapper.toEntity(dto.getMascotaUpdateDTO());
+        if (dto.getMascota() != null) {
+            Mascota nueva = mascotaMapper.toEntity(dto.getMascota());
             nueva.setEstudiante(estudianteExistente);
             estudianteExistente.setMascota(nueva);
         } else {
