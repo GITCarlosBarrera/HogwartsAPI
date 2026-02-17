@@ -4,7 +4,9 @@ import com.example.hogwarts.dto.EstudianteDTO;
 import com.example.hogwarts.dto.create.EstudianteCreateDTO;
 import com.example.hogwarts.dto.update.EstudianteUpdateDTO;
 import com.example.hogwarts.mapper.EstudianteMapper;
+import com.example.hogwarts.mapper.MascotaMapper;
 import com.example.hogwarts.model.Estudiante;
+import com.example.hogwarts.model.Mascota;
 import com.example.hogwarts.repository.CasaRepository;
 import com.example.hogwarts.repository.EstudianteRepository;
 import com.example.hogwarts.repository.MascotaRepository;
@@ -23,6 +25,7 @@ public class EstudianteServiceImpl implements EstudianteService {
     private final EstudianteRepository estudianteRepository;
     private final MascotaRepository mascotaRepository;
     private final EstudianteMapper estudianteMapper;
+    private final MascotaMapper mascotaMapper;
 
     @Override
     public List<EstudianteDTO> obtenerTodosLosEstudiantes() {
@@ -54,6 +57,15 @@ public class EstudianteServiceImpl implements EstudianteService {
                 .orElseThrow(() -> new NoSuchElementException("Estudiante no encontrado con id:" + id));
 
         estudianteMapper.updateEntityFromDto(dto, estudianteExistente);
+
+        if (dto.getMascotaUpdateDTO() != null) {
+            Mascota nueva = mascotaMapper.toEntity(dto.getMascotaUpdateDTO());
+            nueva.setEstudiante(estudianteExistente);
+            estudianteExistente.setMascota(nueva);
+        } else {
+            estudianteExistente.setMascota(null);
+        }
+
         Estudiante estudianteActualizado = estudianteRepository.save(estudianteExistente);
 
         return estudianteMapper.toDto(estudianteActualizado);

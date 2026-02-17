@@ -3,6 +3,7 @@ package com.example.hogwarts.controller;
 import com.example.hogwarts.dto.MascotaDTO;
 import com.example.hogwarts.dto.create.MascotaCreateDTO;
 import com.example.hogwarts.service.MascotaService;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,7 +16,7 @@ import java.util.List;
 @RequestMapping("/api/mascota")
 @RequiredArgsConstructor
 public class MascotaController {
-    private MascotaService mascotaService;
+    private final MascotaService mascotaService;
 
     @GetMapping
     public List<MascotaDTO> obtenerMascotas() {
@@ -23,6 +24,7 @@ public class MascotaController {
     }
 
     @PostMapping
+    @Operation(summary = "Obten todas las mascotas")
     public ResponseEntity<MascotaDTO> crearMascota(@Valid @RequestBody MascotaCreateDTO dto) {
         MascotaDTO mascotaCreado = mascotaService.crearMascota(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(mascotaCreado); // 201 Created

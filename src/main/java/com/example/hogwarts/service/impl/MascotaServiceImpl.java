@@ -17,8 +17,8 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class MascotaServiceImpl implements MascotaService {
-    private MascotaRepository mascotaRepository;
-    private MascotaMapper mascotaMapper;
+    private final MascotaRepository mascotaRepository;
+    private final MascotaMapper mascotaMapper;
 
     @Override
     public List<MascotaDTO> obtenerTodasLasMascotas() {
