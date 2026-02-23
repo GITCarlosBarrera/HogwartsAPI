@@ -21,11 +21,13 @@ jobs:
         with:
           java-version: '25'
           distribution: 'temurin'
-          cache: 'maven'
+          cache: 'gradle'
 
       # 3. Compilar (saltamos tests)
-      - name: Build with Maven
-        run: mvn clean package -DskipTests
+      - name: Build with Gradle
+        run: |
+          chmod +x gradlew
+          ./gradlew build -x test
 
       # 4. Login en GitHub Container Registry
       - name: Log in to the Container registry
