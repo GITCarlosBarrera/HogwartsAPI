@@ -1,7 +1,7 @@
 name: Deploy Docker a Elastic Beanstalk
 on:
   push:
-    branches: ["main"]
+    branches: ["master"]
 # Permisos necesarios para subir paquetes a GitHub Container Registry
 permissions:
   contents: read
